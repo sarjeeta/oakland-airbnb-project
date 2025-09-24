@@ -1,4 +1,7 @@
 import streamlit as st
+import os
+os.environ["STREAMLIT_WATCHER_TYPE"] = "none"
+
 import pandas as pd
 import base64
 import math
@@ -10,7 +13,7 @@ from xgboost import XGBRegressor
 from pred import *
 
 
-X_whole = pd.read_csv('Oakland_final.csv')
+X_whole = pd.read_csv('data/Oakland_final.csv')
 imp_header = 'gym,dishwasher,kitchen,indoor_fireplace,iron,washer,heating,hair_dryer,stove,hot_water,microwave,dryer,Entire Home/Apartment,Private,Shared,Hotel,neighbourhood_Near North Side,neighbourhood_Albany Park,neighbourhood_Loop,neighbourhood_Lincoln Park,neighbourhood_Washington Park,neighbourhood_Lake View,neighbourhood_Logan Square,neighbourhood_Near West Side,neighbourhood_East Garfield Park,neighbourhood_South Chicago,neighbourhood_Uptown,neighbourhood_Belmont Cragin,neighbourhood_Oakland,neighbourhood_Englewood,neighbourhood_New City,neighbourhood_Austin,neighbourhood_Dunning,neighbourhood_Lincoln Highlands,room_type_Entire home/apt,room_type_Private room,neighbourhood_Woodland,neighbourhood_Upper Rockridge,air_conditioning,coffee_maker,neighbourhood_Toler Heights,neighbourhood_Highland,neighbourhood_Cleveland Heights,neighbourhood_Maxwell Park,neighbourhood_Bushrod,neighbourhood_Hoover-Foster,neighbourhood_Piedmont Avenue,refrigerator,breakfast,pool,neighbourhood_Shafter,neighbourhood_Golden Gate,neighbourhood_Downtown,neighbourhood_Lakeshore,neighbourhood_Laurel,neighbourhood_Dimond,neighbourhood_East Peralta,private_entrance'
 header = imp_header.split(',')
 data = []
